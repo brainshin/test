@@ -43,7 +43,16 @@ def print_dan(dan: int) -> None:
     for i in range(1, 10):
         print(f"{dan} x {i} = {dan * i}")
     print()
-
+    if len(args) == 0:
+        # 인자가 없으면 2단 ~ 9단 전체 출력
+        gugudan(2, 9)
+    elif len(args) == 1:
+        # 단 하나만 지정
+        gugudan(args[0], args[0])
+    else:
+        # 범위 지정 (작은 수 ~ 큰 수)
+        start, end = sorted(args[:2])
+        gugudan(start, end)
 
 def gugudan(start: int = 2, end: int = 9) -> None:
     """
